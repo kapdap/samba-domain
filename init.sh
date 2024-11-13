@@ -80,7 +80,7 @@ appSetup () {
 				" /etc/samba/smb.conf
 		fi
 		if [[ ${INSECURELDAP,,} == "true" ]]; then
-			sed -i "/\[global\]/a \
+			sed -i "/dns forwarder =/c \
 				\\\tldap server require strong auth = no\
 				" /etc/samba/smb.conf
 		fi
