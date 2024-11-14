@@ -9,7 +9,7 @@ RUN \
         attr \
         acl \
         samba \
-        samba-dsdb-modules \
+        samba-ad-dc \
         samba-vfs-modules \
         smbclient \
         ldap-utils \
