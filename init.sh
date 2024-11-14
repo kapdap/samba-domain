@@ -16,6 +16,7 @@ appSetup () {
 	HOSTIP=${HOSTIP:-NONE}
 	RPCPORTS=${RPCPORTS:-"49152-49172"}
 	DOMAIN_DC=${DOMAIN_DC:-${DOMAIN_DC}}
+	ADLEVEL=${ADLEVEL:-"2016"}
 	
 	LDOMAIN=${DOMAIN,,}
 	UDOMAIN=${DOMAIN^^}
@@ -54,7 +55,7 @@ appSetup () {
 				samba-tool domain join ${LDOMAIN} DC -U"${URDOMAIN}\administrator" --password="${DOMAINPASS}" --dns-backend=SAMBA_INTERNAL --site=${JOINSITE}
 			fi
 		else
-			samba-tool domain provision --use-rfc2307 --domain=${URDOMAIN} --realm=${UDOMAIN} --server-role=dc --dns-backend=SAMBA_INTERNAL --adminpass=${DOMAINPASS} ${HOSTIP_OPTION}
+            samba-tool domain provision --use-rfc2307 --domain=${URDOMAIN} --realm=${UDOMAIN} --server-role=dc --dns-backend=SAMBA_INTERNAL --adminpass=${DOMAINPASS} --option="ad dc functional level = ${ADLEVEL}" --function-level=${ADLEVEL} ${HOSTIP_OPTION}
 			if [[ ${NOCOMPLEXITY,,} == "true" ]]; then
 				samba-tool domain passwordsettings set --complexity=off
 				samba-tool domain passwordsettings set --history-length=0
