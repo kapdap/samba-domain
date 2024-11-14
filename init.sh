@@ -63,8 +63,7 @@ appSetup () {
 			fi
 		fi
 		sed -i "/\[global\]/a \
-			\\\tidmap_ldb:use rfc2307 = yes\\n\
-			wins support = yes\\n\
+			\\\twins support = yes\\n\
 			template shell = /bin/bash\\n\
 			template homedir = /home/%U\\n\
 			idmap config ${URDOMAIN} : schema_mode = rfc2307\\n\
