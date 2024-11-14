@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.10
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -9,6 +9,8 @@ RUN \
         attr \
         acl \
         samba \
+        samba-ad-dc \
+        samba-vfs-modules \
         smbclient \
         ldap-utils \
         winbind \

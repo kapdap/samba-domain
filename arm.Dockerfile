@@ -1,4 +1,4 @@
-FROM arm32v7/ubuntu:22.04
+FROM arm32v7/ubuntu:24.10
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -9,6 +9,8 @@ RUN \
         attr \
         acl \
         samba \
+        samba-ad-dc \
+        samba-vfs-modules \
         smbclient \
         ldap-utils \
         winbind \
